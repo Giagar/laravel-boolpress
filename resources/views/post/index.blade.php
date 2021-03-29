@@ -11,6 +11,7 @@
             <th scope="col">Title</th>
             <th scope="col">Body</th>
             <th scope="col">Author</th>
+            <th scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +21,9 @@
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->body }}</td>
                     <td>{{ $post->author->name}} {{$post->author->surname}}</td>
+                    <td>
+                        <a href="{{ route('post.show', compact('post')) }}" class="btn btn-info">See</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
