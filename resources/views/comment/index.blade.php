@@ -8,7 +8,7 @@
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Relate Post Id</th>
+            <th scope="col">Related Post Id</th>
             <th scope="col">Title</th>
             <th scope="col">Body</th>
             <th scope="col">Author</th>
