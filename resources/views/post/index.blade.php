@@ -19,7 +19,21 @@
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td>{{ $post->title }}</td>
-                    <td>{{ $post->body }}</td>
+                    <td>{{ $post->body }}
+                        <br>
+                        <button class="btn btn-info" data-toggle="collapse" data-target="#commentsContainer{{$post->id}}">See comments</button>
+                        <div class="collapse" id="commentsContainer{{$post->id}}">
+                            <h3>Comments</h3>
+                            @foreach ($post->comments as $comment)
+                                <div>
+                                    <span>{{ $comment->id }}</span>
+                                    <h4>{{ $comment->title }}</h4>
+                                    <p>{{ $comment->body }}</p>
+                                    <span>{{ $comment->author }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </td>
                     <td>{{ $post->author->name}} {{$post->author->surname}}</td>
                     <td>
                         <a href="{{ route('post.show', compact('post')) }}" class="btn btn-info">See</a>
