@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boolpress</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>Boolpress</h1>
+    </header>
+
+    <main>
+        <h2>@yield('main-title')</h2>
+        @yield('main-content')
+    </main>
+
+
+</body>
+</html>
