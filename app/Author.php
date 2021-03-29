@@ -3,8 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+// use App\AuthorDetail;
 
 class Author extends Model
 {
-    //
+    public function detail() {
+        return $this->hasOne('App\AuthorDetail');
+    }
+
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
 }
