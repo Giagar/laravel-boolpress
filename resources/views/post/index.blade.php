@@ -36,7 +36,7 @@
                     </td>
                     <td>{{ $post->author->name}} {{$post->author->surname}}</td>
                     <td>
-                        <a href="{{ route('post.show', compact('post')) }}" class="btn btn-info">See</a>
+                        <a href="{{ route('posts.show', compact('post')) }}" class="btn btn-info">See</a>
                     </td>
                 </tr>
             @endforeach

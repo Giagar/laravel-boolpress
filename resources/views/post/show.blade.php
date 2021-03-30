@@ -11,7 +11,7 @@
       <h5 class="card-title">{{ $post->title }}</h5>
       <p class="card-text"> {{$post->body}} </p>
       <p class="card-text"> {{$post->author->name}} {{$post->author->surname}} </p>
-      <a href=" {{ route('post.index') }} " class="btn btn-primary">Back to posts</a>
+      <a href=" {{ route('posts.index') }} " class="btn btn-primary">Back to posts</a>
     </div>
 </div>
 
