@@ -3,6 +3,7 @@
 @section('main-title', 'Posts')
 
 @section('main-content')
+<img src="{{ asset('images/kMq5qofFBgTNwWFxjZdsBlAJVuj1EbfkWzsKgLcS.png') }}">
 
     <table class="table">
         <thead class="thead-dark">

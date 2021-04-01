@@ -3,7 +3,7 @@
 @section('main-title', 'Add posts')
 
 @section('main-content')
-<form action="{{ route('posts.store') }}" method="POST">
+<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('POST')
     <div class="form-group">
@@ -29,7 +29,12 @@
               <option value="{{$tag->id}}">{{$tag->name}}</option>
           @endforeach
         </select>
-      </div>
+    </div>
+    <div class="form-group">
+        <label for="image">Upload an image</label>
+        <input type="file" id="image" name="image" class="form-control">
+        </select>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 @endsection
