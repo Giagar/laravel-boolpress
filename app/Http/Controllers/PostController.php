@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Author;
 use App\Tag;
+use App\Mail\PostCreated;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -46,6 +48,9 @@ class PostController extends Controller
         $post->save();
 
         $post->tags()->attach($data['tags']);
+
+        $mailableObject = new PostCreated($post);
+        Mail::to('b70847667f-272c59@inbox.mailtrap.io')->send($mailableObject);
 
         return redirect()->route('posts.index');
     }
