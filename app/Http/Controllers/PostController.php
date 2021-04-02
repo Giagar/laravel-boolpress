@@ -45,9 +45,11 @@ class PostController extends Controller
         $data = $request->all();
         $path = $request->file('image')->store('images');
 
-        dd($path);
+        // dd($path);
         $post = new Post();
         $post->fill($data);
+        $post->image = $path;
+        // dd($post->image);
         $post->save();
 
         $post->tags()->attach($data['tags']);

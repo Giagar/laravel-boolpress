@@ -3,7 +3,7 @@
 @section('main-title', 'Posts')
 
 @section('main-content')
-<img src="{{ asset('images/kMq5qofFBgTNwWFxjZdsBlAJVuj1EbfkWzsKgLcS.png') }}">
+{{-- <img src="{{ asset($post->image) }}"> --}}
 
     <table class="table">
         <thead class="thead-dark">
@@ -19,7 +19,7 @@
         <tbody>
             @foreach ($posts as $post)
                 <tr>
-                    <td>{{ $post->id }}</td>
+                    <td>{{ $post->id }} <img src="{{ asset($post->image) }}" width="50"></td>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->body }}
                         <br>
