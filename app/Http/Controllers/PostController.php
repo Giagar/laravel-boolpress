@@ -8,6 +8,8 @@ use App\Author;
 use App\Tag;
 use App\Mail\PostCreated;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\TagsUsed;
+use Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver;
 
 class PostController extends Controller
 {
@@ -54,8 +56,26 @@ class PostController extends Controller
 
         $post->tags()->attach($data['tags']);
 
+        // mail con markdown: all'invio di ogni post, invia tutti i tags del post
+        $allTags = Tag::all();
+        // dd($data['tags']);
+
+
+        $tagsObject = [];
+        foreach($allTags as $tagObject) {
+            if(in_array($tagObject->id, $data['tags'])) {
+                $tagsObject[] = $tagObject;
+            }
+        }
+
+        $tagsMail = new TagsUsed($tagsObject);
+        Mail::to('b70847667f-272c59@inbox.mailtrap.io')->send($tagsMail);
+
+        // mail all'invio di ogni post
         $mailableObject = new PostCreated($post);
         Mail::to('b70847667f-272c59@inbox.mailtrap.io')->send($mailableObject);
+
+
 
         return redirect()->route('posts.index');
     }

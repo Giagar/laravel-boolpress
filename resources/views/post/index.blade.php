@@ -1,6 +1,8 @@
 @extends('layouts.base')
 
-@section('main-title', 'Posts')
+@section('main-title')
+    Posts <a class="btn btn-primary rounded-circle" href=" {{ route('posts.create') }} ">Add</a>
+@endsection
 
 @section('main-content')
 {{-- <img src="{{ asset($post->image) }}"> --}}
